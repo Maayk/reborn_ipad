@@ -1,0 +1,158 @@
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(73, 73, 73);
+  }
+
+.central-policia{
+    position: absolute;
+    background-color: #001a50;
+    background-image: url(../imgs/policewallpaper.png);
+    background-position: center;
+    background-size: cover;
+    left: -1.4vh;
+    top: -4.0vh;
+    width: 118.1vh;
+    height: 88.5vh;
+    border-radius: 5vh;
+    display: none;
+}
+
+.close-policia{
+    position: absolute;
+    background-color: #d2d2d2;
+    border-radius: 2vh;
+    width: 16vh;
+    height: 1vh;
+    right: 0;
+    bottom: 1vh;
+    left: 0;
+    margin: auto;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.close-policia:hover{
+    background-color: #ffffff;
+    transition: all 0.2s;
+}
+
+.policia-area{
+    display: flex;
+    justify-content: center;
+}
+
+.login-area{
+    position: relative;
+    top: 15vh;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 31vh;
+    min-height: 21vh;
+    color: black;
+    border-radius: 1vh;
+    animation: transitionIn2 1.5s;
+}
+
+.registro-area{
+    position: relative;
+    display: none;
+    top: 15vh;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 31vh;
+    min-height: 21vh;
+    color: black;
+    border-radius: 1vh;
+    animation: transitionIn2 1.5s;
+}
+
+
+.titulo-login{
+    text-align: center;
+    font-size: 2vh;
+    width: 100%;
+    height: 4vh;
+    line-height: 4vh;
+    background-color: #2659afba;
+    border-top-right-radius: 0.5vh;
+    border-top-left-radius: 0.5vh;
+    color: white;
+}
+
+.resultado-login{
+    position: relative;
+    width: 95%;
+    text-align: center;
+    height: 5vh;
+    line-height: 5vh;
+    top: 5vh;
+    left: 0.8vh;
+    color: white;
+    background-color: #4392de4f;
+    transition: all 0.2s;
+}
+
+#login-usuario{
+    position: relative !important;
+    top: 1vh;
+    left: 2vh;
+    width: 27vh;
+    text-align: center !important;
+    border: none !important;
+    background-color: #ffffff;
+    border-radius: 0.3vh;
+}
+#senha-usuario{
+    position: relative !important;
+    top: 4vh;
+    left: 2vh;
+    width: 27vh;
+    text-align: center !important;
+    border: none !important;
+    background-color: #ffffff;
+    border-radius: 0.3vh;
+}
+
+.fazer-login{
+    position: relative;
+    margin-top: 7vh;
+    left: 7vh;
+    height: 4vh;
+    width: 52%;
+    border: none;
+    background-color: #4492ea;
+    color: white;
+    border-radius: 0.5vh;
+    cursor: pointer;
+}
+
+.police-logo{
+    width: auto;
+    height: 12vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../imgs/logo.png);
+}
+
+.aviso-front{
+    position: absolute;
+    bottom: 14vh;
+    left: 6vh;
+    width: 90%;
+    background-color: #00000070;
+    line-height: 5vh;
+    border-radius: 0.5vh;
+    color: white;
+    text-align: center;
+    animation: transitionIn2 1.5s;
+}
+
+.pagina-inicial{
+    display: block;
+}
+.pagina-2{
+    display: none;
+}
