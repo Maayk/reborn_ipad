@@ -6,3 +6,8 @@ What have?
   - a cool interface to you start your project from something
 
 Compatible with Qbcore and simple to integrate anyone roleplay core.
+
+
+Preview
+
+https://streamable.com/0w80ho
