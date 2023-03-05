@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/ipad.css">
+    <link rel="stylesheet" href="./css/app-policia.css">
+    <title>Reborn iPad</title>
+</head>
+
+<body>
+    <div class="ipad-container">
+        <div class="ipad-centerarea">
+            <!-- Top Bar -->
+            <div class="barra-topo">
+                <div class="nome-server">Reborn</div>
+                <div class="sinal"></div>
+                <div class="bateria"></div>
+            </div>
+            <div class="main-screem">
+                <!-- Central de Notificações -->
+                <div class="centro-notificacoes">
+                    <div class="hora-data">
+                        <div class="horario">02:55</div>
+                        <div class="data">Quarta-Feira, 15 de julho</div>
+                    </div>
+                    <div class="tempo-info">
+                        <div class="tmp-info-header">
+                            <div class="tmp-icone"></div>
+                            <div class="tmp-nome">Weather</div>
+                            <i class="tmp-iconright large material-icons">chevron_right</i>
+                        </div>
+                        <div class="tempo-container">
+                            <div class="icone-cloud">
+                                <i class="large material-icons">cloud</i>
+                            </div>
+                            <div class="cidade-info">
+                                <div class="cidade-nome">Los Santos</div>
+                                <div class="tipo-tempo">Nublado</div>
+                                <div class="chuva-chance">Chance de chuva 0%</div>
+                            </div>
+                            <div class="temp-info">
+                                <div class="temp-atual">32°</div>
+                                <div class="temp-minmax">28 / 36</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Lista de Apps -->
+                <div class="area-aplicativos">
+                    <div class="app-policia"></div>
+                </div>
+                <!-- Aplicativo Policial -->
+                <div class="central-policia">
+
+                    <div class="policia-area pagina-inicial">
+                        
+                        <div class="login-area">
+                            <div class="police-logo"></div>
+                            <!-- <div class="titulo-login">Painel</div> -->
+                            <input id="login-usuario" type="text" placeholder="Seu login">
+                            <input id="senha-usuario" type="password" placeholder="Sua senha">
+                            <div class="resultado-login">Coloque os dados corretamente</div>
+                            <button class="waves-effect waves-light fazer-login">Fazer Login</button>
+                        </div>
+
+                        <div class="registro-area">
+                            <div class="police-logo"></div>
+                            <!-- <div class="titulo-login">Painel</div> -->
+                            <input id="login-usuario" type="text" placeholder="Login Desejado">
+                            <input id="senha-usuario" type="password" placeholder="Sua senha">
+                            <input id="senha-usuario" type="password" placeholder="Confirmar Senha">
+                            <div class="resultado-login">Coloque os dados corretamente</div>
+                            <button class="waves-effect waves-light fazer-login">Fazer Login</button>
+                        </div>
+
+                        <div class="aviso-front"> Olá <strong style="color: rgb(37, 113, 201);">Officer</strong>, este é seu Painel de Consultas e Registros, preste bem atenção em tudo que você registrar.</div>
+                    </div>
+                    <div class="policia-painel pagina-2">
+                        <div class="aviso-front"> Você está logado </div>
+                        <button class="waves-effect waves-light fazer-logoff">Deslogar</button>
+                    </div>
+
+
+                    <div class="app-close close-policia"></div>
+                </div>
+                <!-- Area do Botão direito -->
+                <div class="menu" id="reborn-context">
+                    <ul class="menu-options">
+                        <span class="context-menu-quantidade">23</span>
+                        <div class="context-item-preview"></div>
+                        <div class="context-item-label">Sub-Metralhadora</div>
+                        <div id="resetinputs" class="context-quantidade-input">
+                            <div id="qtdUnico" class="qtd-input-unico" onclick="SetMinItem()">
+                                1
+                            </div>
+                            <input id="inputQtd" class="input-quantidade" type="number" value="0" onwheel="this.blur()">
+                            <div id="qtdMax" class="qtd-input-max" onclick="SetMaxInputItem()">
+                                23
+                            </div>
+                        </div>
+                        <div class="context-buttons">
+                            <li class="menu-option" id="usarbutton" onclick="iteminfocontext()">Usar</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./js/ipad.js"></script>
+<script type="text/javascript" src="./apps/policia.js"></script>
+
+</html>
