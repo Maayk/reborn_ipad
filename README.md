@@ -7,6 +7,9 @@ What have?
 
 Compatible with Qbcore and simple to integrate anyone roleplay core.
 
+Discord:
+https://discord.gg/D7mtke9EVy
+
 
 Preview
 
