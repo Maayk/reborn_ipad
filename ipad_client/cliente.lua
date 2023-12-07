@@ -12,7 +12,6 @@ end)
 
 local clima = ''
 
-
 RegisterCommand('tablet',function(source,args,rawCommand)
 	local jogador1 = PlayerPedId()
 	if jogador1 then
@@ -30,35 +29,27 @@ AddEventHandler("RebornCore:OpeniPad:Client", function()
 end)
 
 RegisterNetEvent("RebornCore:Receive:UpdatedClima")
+
+local climaDescriptions = {
+    ["EXTRASUNNY"] = "Clima limpo",
+    ["CLEAR"] = "Clima limpo",
+    ["NEUTRAL"] = "Poucas nuvens",
+    ["SMOG"] = "Nublado",
+    ["FOGGY"] = "Extremamente nublado",
+    ["OVERCAST"] = "Tempo fechado",
+    ["CLOUDS"] = "Clima ameno",
+    ["CLEARING"] = "Chuva moderada",
+    ["RAIN"] = "Chuva moderada",
+    ["THUNDER"] = "Tempestade",
+    ["SNOW"] = "Geada",
+    ["BLIZZARD"] = "Nevasca",
+    ["SNOWLIGHT"] = "Geada moderada",
+    ["XMAS"] = "Neve consistente",
+}
+
 AddEventHandler("RebornCore:Receive:UpdatedClima", function(xclima)
-    if xclima == "EXTRASUNNY" or xclima == "CLEAR" then
-        clima = "Clima limpo"
-    elseif xclima == "NEUTRAL" then
-        clima = "Poucas nuvens"
-    elseif xclima == "SMOG" then
-        clima = "Nublado"
-    elseif xclima == "FOGGY" then
-        clima = "Extremamente nublado"
-    elseif xclima == "OVERCAST" then
-        clima = "Tempo fechado"
-    elseif xclima == "CLOUDS" then
-        clima = "Clima ameno"
-    elseif xclima == "CLEARING" or xclima == "RAIN" then
-        clima = "Chuva moderada"
-    elseif xclima == "THUNDER" then
-        clima = "Tempestade"
-    elseif xclima == "SNOW" then
-        clima = "Geada"
-    elseif xclima == "BLIZZARD" then
-        clima = "Nevasca"
-    elseif xclima == "SNOWLIGHT" then
-        clima = "Geada moderada"
-    elseif xclima == "XMAS" then
-        clima = "Neve consistente"
-    else
-        clima = "Desastre natural"
-    end
-   print(clima)
+    local clima = climaDescriptions[xclima] or "Desastre natural"
+    print(clima)
 end)
 
 RegisterNUICallback("FechariPad", function(data, cb)
@@ -74,63 +65,40 @@ RegisterNUICallback("Policia:Login", function(data, cb)
     end, data.login,data.senha)
 end)
 
-Citizen.CreateThread(function ()
+Citizen.CreateThread(function()
     while true do
-	   Citizen.Wait(1350)
-		local playerPed = GetPlayerPed(-1)
+        Citizen.Wait(1350)
 
-		month = GetClockMonth()
-		dayOfMonth = GetClockDayOfMonth()
-		if month == 0 then
-			month = "Janeiro"
-		elseif month == 1 then
-			month = "Janeiro"
-		elseif month == 2 then
-			month = "Fevereiro"
-		elseif month == 3 then
-			month = "Março"
-		elseif month == 4 then
-			month = "Abril"
-		elseif month == 5 then
-			month = "Maio"
-		elseif month == 6 then
-			month = "Junho"
-		elseif month == 7 then
-			month = "Julho"
-		elseif month == 8 then
-			month = "Agosto"
-		elseif month == 9 then
-			month = "Setembro"
-		elseif month == 10 then
-			month = "Outubro"
-		elseif month == 11 then
-			month = "Novembro"
-		elseif month == 12 then
-			month = "Dezembro"
-		end
+        local playerPed = GetPlayerPed(-1)
 
-		hour = GetClockHours()
-		minute = GetClockMinutes()
-		
-		procurado = procurado
-		if hour <= 9 then
-			hour = "0" .. hour
-		end
-		if minute <= 9 then
-			minute = "0" .. minute
-		end
+        local monthNames = {
+            "Janeiro", "Fevereiro", "Março", "Abril",
+            "Maio", "Junho", "Julho", "Agosto",
+            "Setembro", "Outubro", "Novembro", "Dezembro"
+        }
 
-		datacidade = dayOfMonth.." de "..month
-		horario = hour..":"..minute
-        temperatura = exports.reborn_tmp.getCurrentTemperature()
-		SendNUIMessage({
+        local month = monthNames[GetClockMonth() + 1] or "Mês Desconhecido"
+        local dayOfMonth = GetClockDayOfMonth()
+
+        local hour = GetClockHours()
+        local minute = GetClockMinutes()
+
+        hour = (hour <= 9) and "0" .. hour or hour
+        minute = (minute <= 9) and "0" .. minute or minute
+
+        local datacidade = string.format("%d de %s", dayOfMonth, month)
+        local horario = string.format("%s:%s", hour, minute)
+
+        local temperatura = exports.reborn_tmp.getCurrentTemperature()
+
+        SendNUIMessage({
             action = "updateInfo",
-			horario = horario,
-			datacidade = datacidade,
-			temperatura = temperatura,
-            tempmin = temperatura*0.89,
-            tempmax = temperatura*1.12,
-			clima = clima,
-		})
+            horario = horario,
+            datacidade = datacidade,
+            temperatura = temperatura,
+            tempmin = temperatura * 0.89,
+            tempmax = temperatura * 1.12,
+            clima = clima,
+        })
     end
 end)
