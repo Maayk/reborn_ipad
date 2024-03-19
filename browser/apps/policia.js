@@ -1,4 +1,4 @@
-var login = false
+let login = false
 
 $(document).ready(function(){
     console.log(login)
